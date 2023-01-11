@@ -52,7 +52,6 @@ function createCube(size) {
       );
     }
     if (i > numberOfLines / 2) {
-      console.log('paso la mitad ' + i);
       newCube.push(
         blankSpace.repeat(i - 1 - numberOfLines / 2) +
           leftSide.repeat(numberOfLines - (i - 1)) +
@@ -64,4 +63,4 @@ function createCube(size) {
 
   return newCube.join('');
 }
-console.log(createCube(2));
+// sexto reto
