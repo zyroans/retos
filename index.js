@@ -10,6 +10,9 @@ const maxCities = 3;
 const results = document.createElement('div');
 appDiv.appendChild(results);
 results.innerHTML = createCube(3);
+const reto7 = document.createElement('div');
+appDiv.appendChild(reto7);
+reto7.innerHTML = 'reto 7';
 
 function getMaxGifts(giftsCities, maxGifts, maxCities) {
   let presentTotalWeight = giftsCities.reduce(
@@ -39,7 +42,7 @@ function createCube(size) {
   const topSide = '\\_';
   const bottonSide = '_/';
   const leftSide = '\\/';
-  const blankSpace = '&nbsp';
+  const blankSpace = ' ';
   for (let i = 1; i <= numberOfLines; i++) {
     if (i <= numberOfLines / 2) {
       newCube.push(
@@ -63,4 +66,32 @@ function createCube(size) {
 
   return newCube.join('');
 }
-// sexto reto
+// septimo reto
+
+const a1 = ['bici', 'coche', 'bici', 'bici', 'casa'];
+const a2 = ['coche', 'bici', 'muñeca', 'coche'];
+const a3 = ['bici', 'pc', 'pc'];
+
+function getGiftsToRefill(a1, a2, a3) {
+  const presentsToReplace = [];
+  const anotherArr1 = [a1, a2, a3];
+  const actualArr = [... new Set(a1.concat(a2,a3))];
+  const presentToCompare = a2.concat(a3);
+  function checkAvailability(arr, val) {
+    return arr.some((arrVal) => val === arrVal);
+  }
+  console.log(presentToCompare);
+  console.log("ACTUAL ARR", actualArr);
+  console.log(anotherArr1);
+  console.log(
+    actualArr.forEach((element) => {
+      console.log(element);
+      console.log(checkAvailability(presentToCompare, element));
+    })
+  );
+  
+  
+
+  return presentsToReplace;
+}
+console.log(getGiftsToRefill(a1, a2, a3));
