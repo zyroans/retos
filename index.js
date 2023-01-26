@@ -68,30 +68,24 @@ function createCube(size) {
 }
 // septimo reto
 
-const a1 = ['bici', 'coche', 'bici', 'bici', 'casa'];
-const a2 = ['coche', 'bici', 'muñeca', 'coche'];
+const a1 = ['bici', 'coche', 'bici', 'bici'];
+const a2 = ['coche', 'bici','pc',  'coche'];
 const a3 = ['bici', 'pc', 'pc'];
 
 function getGiftsToRefill(a1, a2, a3) {
-  const presentsToReplace = [];
-  const anotherArr1 = [a1, a2, a3];
-  const actualArr = [... new Set(a1.concat(a2,a3))];
-  const presentToCompare = a2.concat(a3);
-  function checkAvailability(arr, val) {
-    return arr.some((arrVal) => val === arrVal);
-  }
-  console.log(presentToCompare);
-  console.log("ACTUAL ARR", actualArr);
-  console.log(anotherArr1);
-  console.log(
-    actualArr.forEach((element) => {
-      console.log(element);
-      console.log(checkAvailability(presentToCompare, element));
-    })
-  );
-  
-  
-
-  return presentsToReplace;
+  let presentsToReplace = [];
+  let uniquePresent = []
+  const unitedArrays = [a1, a2, a3] ;
+  unitedArrays.forEach((element)=> presentsToReplace.push(...new Set(element)));
+  uniquePresent =presentsToReplace.filter((element)=>{
+    let count = 0;
+    for(let item of presentsToReplace){
+      if (item === element){
+        count += 1;
+      }      
+    }
+    return count === 1
+  })
+ return uniquePresent;
 }
 console.log(getGiftsToRefill(a1, a2, a3));
