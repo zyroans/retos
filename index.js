@@ -69,23 +69,22 @@ function createCube(size) {
 // septimo reto
 
 const a1 = ['bici', 'coche', 'bici', 'bici'];
-const a2 = ['coche', 'bici','pc',  'coche'];
+const a2 = ['coche', 'bici', 'coche'];
 const a3 = ['bici', 'pc', 'pc'];
 
 function getGiftsToRefill(a1, a2, a3) {
   let presentsToReplace = [];
-  let uniquePresent = []
-  const unitedArrays = [a1, a2, a3] ;
-  unitedArrays.forEach((element)=> presentsToReplace.push(...new Set(element)));
-  uniquePresent =presentsToReplace.filter((element)=>{
+  [a1, a2, a3].forEach((element) =>
+    presentsToReplace.push(...new Set(element))
+  );
+  return presentsToReplace.filter((element) => {
     let count = 0;
-    for(let item of presentsToReplace){
-      if (item === element){
+    for (let item of presentsToReplace) {
+      if (item === element) {
         count += 1;
-      }      
+      }
     }
-    return count === 1
-  })
- return uniquePresent;
+    return count === 1;
+  });
 }
 console.log(getGiftsToRefill(a1, a2, a3));
